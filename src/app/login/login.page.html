@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title" size="large">Bienvenido de Vuelta</ion-title>
+  </div>
+  <form [formGroup]="ionicForm"  novalidate>
+    <div class="ion-padding">
+
+      <ion-item>
+        <ion-input placeholder="Usuario" formControlName="email" class="input" />
+        <ion-icon name="person-outline"></ion-icon>
+        
+      </ion-item>
+    
+      <div style="padding-top: -26px;padding-bottom: 16px;" *ngIf="this.ionicForm.controls?.['email'].touched && this.ionicForm.controls?.['email'].invalid">
+          <ion-text *ngIf="errorControl.email.errors?.required" class="errorInput" color="danger">Email requerido.</ion-text>
+          <ion-text *ngIf="errorControl.email.errors?.pattern" class="errorInput" color="danger">Por favor ingrese un email valido.</ion-text>
+      </div>
+      <ion-item>
+        <ion-input type="password" placeholder="Contraseña" formControlName="password" class="input" />
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div style="padding-top: -26px;padding-bottom: 16px;" *ngIf="this.ionicForm.controls?.['password'].touched && this.ionicForm.controls?.['password'].invalid">
+          <ion-text *ngIf="errorControl.password.errors?.required" class="errorInput" color="danger">Contraseña requerida.</ion-text>
+          <ion-text *ngIf="errorControl.password.errors?.pattern" class="errorInput"  color="danger">Contraseña debe contener por lo menos 1 caracter</ion-text>
+      </div>
+    
+      <div class="forgotpassword">
+        <a [routerLink]="['/password']" style="color: #FFC33F">Olvidó su contraseña?</a>
+      </div>
+
+    </div>
+    <div class="signupLink">
+      <p class="p">Nuevo usuario? <a [routerLink]="['/signup']" style="color: #FFC33F">Crear cuenta</a></p>
+    </div>
+
+    <ion-fab *ngIf="ionicForm.valid" vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+      <ion-fab-button  type="submit" (click)="login()" >
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Complete los datos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioRegistro" (keyup.enter)="cost()">
+        <ion-item>
+          <ion-label position="floating">Asientos Disponibles</ion-label>
+          <ion-input formControlName="puestos" type="number" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Costo</ion-label>
+          <ion-input formControlName="costo" type="number" ></ion-input>
+        </ion-item>
+        <br>
+        <ion-button (click)="cost()">Listo
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
