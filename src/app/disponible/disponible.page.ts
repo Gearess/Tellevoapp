@@ -8,7 +8,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./disponible.page.scss'],
 })
 export class DisponiblePage implements OnInit {
-  viaje = JSON.parse(localStorage.getItem('viaje')!) ?? {puestos: 0, costo: 0};
+  viaje = JSON.parse(localStorage.getItem('viaje')!) ?? {puestos: 0, costo: 0, destino: ""};
   constructor(public alertController: AlertController,
     private router: Router) {
    }

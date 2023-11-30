@@ -17,7 +17,8 @@ export class ViajePage implements OnInit {
     private router: Router) {
     this.formularioRegistro = this.fb.group({
       'costo': new FormControl("", Validators.required),
-      'puestos': new FormControl("", Validators.required)
+      'puestos': new FormControl("", Validators.required),
+      'destino': new FormControl("", Validators.required),
     });
   }
 
@@ -30,7 +31,8 @@ export class ViajePage implements OnInit {
     if(this.formularioRegistro.valid){
       var viaje = {
         puestos: f.puestos,
-        costo: f.costo
+        costo: f.costo,
+        destino: f.destino
       }
   
       localStorage.setItem('viaje',JSON.stringify(viaje))
